@@ -21,8 +21,6 @@
  */
 package com.pironet.tda.utils;
 
-import com.pironet.tda.TDA;
-
 import java.io.IOException;
 import java.util.Properties;
 import java.util.Random;
@@ -47,7 +45,7 @@ public class TipOfDay {
     private static void loadTips() {
         tips = new Properties();
         try {
-            tips.load(TDA.class.getClassLoader().getResourceAsStream("doc/tips.properties"));
+            tips.load(TipOfDay.class.getClassLoader().getResourceAsStream("doc/tips.properties"));
         } catch (IOException ex) {
             ex.printStackTrace();
         }

@@ -19,6 +19,7 @@
 
 package com.pironet.tda;
 
+import com.pironet.tda.ui.utils.UIUtils;
 import com.pironet.tda.utils.DateMatcher;
 import com.pironet.tda.utils.IconFactory;
 import org.slf4j.Logger;
@@ -168,7 +169,7 @@ public class BeaJDKParser extends AbstractDumpParser {
                             }
 
                             title = line;
-                            content = new StringBuffer("<body bgcolor=\"ffffff\"><pre><font size=" + TDA.getFontSizeModifier(-1) + ">");
+                            content = new StringBuffer("<body bgcolor=\"ffffff\"><pre><font size=" + UIUtils.getFontSizeModifier(-1) + ">");
                             content.append(line);
                             content.append("\n");
                         } else if (line.indexOf("at ") >= 0) { // enganado por [fat lock] 
@@ -178,7 +179,7 @@ public class BeaJDKParser extends AbstractDumpParser {
                             String newLine = linkifyMonitor(line);
                             content.append(newLine);
                             if (sContent == null) {
-                                sContent = new StringBuffer("<body bgcolor=\"ffffff\"><font size=" + TDA.getFontSizeModifier(-1) + "><b>");
+                                sContent = new StringBuffer("<body bgcolor=\"ffffff\"><font size=" + UIUtils.getFontSizeModifier(-1) + "><b>");
                             }
                             sContent.append(newLine);
                             monitorStack.push(line);

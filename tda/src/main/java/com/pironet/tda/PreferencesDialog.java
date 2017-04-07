@@ -22,6 +22,7 @@
 
 package com.pironet.tda;
 
+import com.pironet.tda.ui.utils.UIUtils;
 import com.pironet.tda.utils.PrefManager;
 
 import javax.swing.*;
@@ -48,7 +49,7 @@ public class PreferencesDialog extends JDialog {
     public PreferencesDialog(Frame owner) {
         super(owner, "Preferences", true);
         try {
-            this.setIconImage(TDA.createImageIcon("Preferences.png").getImage());
+            this.setIconImage(UIUtils.createImageIcon("Preferences.png").getImage());
         } catch (NoSuchMethodError nsme) {
         // ignore, for 1.4 backward compatibility
         }

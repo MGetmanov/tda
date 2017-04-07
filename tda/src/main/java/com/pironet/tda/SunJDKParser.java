@@ -20,6 +20,7 @@
  */
 package com.pironet.tda;
 
+import com.pironet.tda.ui.utils.UIUtils;
 import com.pironet.tda.utils.DateMatcher;
 import com.pironet.tda.utils.HistogramTableModel;
 import com.pironet.tda.utils.IconFactory;
@@ -217,7 +218,7 @@ public class SunJDKParser extends AbstractDumpParser {
 
                             // Second, initialize state for this new thread
                             title = line;
-                            content = new StringBuffer("<body bgcolor=\"ffffff\"><pre><font size=" + TDA.getFontSizeModifier(-1) + ">");
+                            content = new StringBuffer("<body bgcolor=\"ffffff\"><pre><font size=" + UIUtils.getFontSizeModifier(-1) + ">");
                             content.append(line);
                             content.append("\n");
                         } else if (line.indexOf("at ") >= 0) {
@@ -528,7 +529,7 @@ public class SunJDKParser extends AbstractDumpParser {
     PSPermGen       total 16384K, used 13145K [0x90130000, 0x91130000, 0x94130000)
     object space 16384K, 80% used [0x90130000,0x90e06610,0x91130000)
     
-     * @param threadDump
+     * @param tdi
      * @return
      * @throws java.io.IOException
      */
@@ -586,7 +587,7 @@ public class SunJDKParser extends AbstractDumpParser {
             if (!found && !line.equals("")) {
                 if (line.trim().startsWith("Found one Java-level deadlock")) {
                     found = true;
-                    dContent.append("<body bgcolor=\"ffffff\"><font size=").append(TDA.getFontSizeModifier(-1)).append("><b>");
+                    dContent.append("<body bgcolor=\"ffffff\"><font size=").append(UIUtils.getFontSizeModifier(-1)).append("><b>");
                     dContent.append("Found one Java-level deadlock");
                     dContent.append("</b><hr></font><pre>\n");
                 } else if (lineCounter >= getMaxCheckLines()) {
@@ -601,7 +602,7 @@ public class SunJDKParser extends AbstractDumpParser {
                         addToCategory(catDeadlocks, "Deadlock No. " + (deadlocks), null, dContent.toString(), 0, false);
                     }
                     dContent = new StringBuffer();
-                    dContent.append("</pre><b><font size=").append(TDA.getFontSizeModifier(-1)).append(">");
+                    dContent.append("</pre><b><font size=").append(UIUtils.getFontSizeModifier(-1)).append(">");
                     dContent.append("Found one Java-level deadlock");
                     dContent.append("</b><hr></font><pre>\n");
                     first = true;
@@ -613,7 +614,7 @@ public class SunJDKParser extends AbstractDumpParser {
                     dContent.append(linkifyDeadlockInfo(line));
                     dContent.append("\n");
                 } else if (line.indexOf("Java stack information for the threads listed above") >= 0) {
-                    dContent.append("</pre><br><font size=").append(TDA.getFontSizeModifier(-1)).append("><b>");
+                    dContent.append("</pre><br><font size=").append(UIUtils.getFontSizeModifier(-1)).append("><b>");
                     dContent.append("Java stack information for the threads listed above");
                     dContent.append("</b><hr></font><pre>");
                     first = true;
@@ -632,7 +633,7 @@ public class SunJDKParser extends AbstractDumpParser {
                     } else {
                         dContent.append("<br>");
                     }
-                    dContent.append("<b><font size=").append(TDA.getFontSizeModifier(-1)).append("><code>");
+                    dContent.append("<b><font size=").append(UIUtils.getFontSizeModifier(-1)).append("><code>");
                     dContent.append(line);
                     dContent.append("</font></code></b><pre>");
                 } else {

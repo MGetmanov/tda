@@ -21,6 +21,8 @@
 
 package com.pironet.tda;
 
+import com.pironet.tda.ui.utils.UIUtils;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -48,7 +50,7 @@ public class InfoDialog extends JDialog {
         upperLayout.setVgap(10);
         upperLayout.setHgap(10);
         JPanel upperPane = new JPanel(upperLayout);
-        upperPane.add(new JLabel(TDA.createImageIcon("tda-logo.png")), BorderLayout.CENTER);
+        upperPane.add(new JLabel(UIUtils.createImageIcon("tda-logo.png")), BorderLayout.CENTER);
         upperPane.add(new JLabel(" "), BorderLayout.EAST);
         upperPane.add(new JLabel(" "), BorderLayout.WEST);
         upperPane.add(new JLabel(""), BorderLayout.NORTH);

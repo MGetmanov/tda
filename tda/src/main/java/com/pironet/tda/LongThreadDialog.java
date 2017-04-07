@@ -22,6 +22,8 @@
 
 package com.pironet.tda;
 
+import com.pironet.tda.ui.TDAMainPanel;
+
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.TreePath;
@@ -41,7 +43,7 @@ public class LongThreadDialog extends JDialog {
     private JPanel buttonPanel;
     private JButton okButton;
     private JButton cancelButton;
-    private TDA backRef;
+    private TDAMainPanel backRef;
     private TreePath[] dumps;
     private DefaultMutableTreeNode top;
     private Map threadDumps;
@@ -49,8 +51,8 @@ public class LongThreadDialog extends JDialog {
     /** 
      * Creates a new instance of PreferencesDialog 
      */
-    public LongThreadDialog(TDA owner, TreePath[] dumps, DefaultMutableTreeNode top, Map threadDumps) {        
-        super(TDA.frame, "Detect long running Threads", true);
+    public LongThreadDialog(TDAMainPanel owner, TreePath[] dumps, DefaultMutableTreeNode top, Map threadDumps) {
+        super(TDAMainPanel.frame, "Detect long running Threads", true);
         backRef = owner;
         this.dumps = dumps;
         this.threadDumps = threadDumps;

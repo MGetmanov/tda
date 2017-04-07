@@ -22,6 +22,7 @@
 package com.pironet.tda;
 
 import com.pironet.tda.filter.Filter;
+import com.pironet.tda.ui.utils.UIUtils;
 import com.pironet.tda.utils.PrefManager;
 import com.pironet.tda.utils.ResourceManager;
 
@@ -51,7 +52,7 @@ public class EditCustomCategoryDialog extends JDialog {
     public EditCustomCategoryDialog(Frame owner, String frameTitle, JList catList, boolean isAdd) {
         super(owner, frameTitle, true);
         try {
-            setIconImage(TDA.createImageIcon("Filters.png").getImage());
+            setIconImage(UIUtils.createImageIcon("Filters.png").getImage());
         } catch (NoSuchMethodError nsme) {
             // ignore, for 1.4 backward compatibility
         }

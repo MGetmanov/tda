@@ -22,7 +22,7 @@
 
 package com.pironet.tda.jconsole;
 
-import com.pironet.tda.TDA;
+import com.pironet.tda.ui.TDAMainPanel;
 import com.sun.tools.jconsole.JConsoleContext;
 import com.sun.tools.jconsole.JConsoleContext.ConnectionState;
 import com.sun.tools.jconsole.JConsolePlugin;
@@ -40,7 +40,7 @@ import java.util.Map;
 public class TDAPlugin extends JConsolePlugin implements PropertyChangeListener
 {
     private MBeanDumper mBeanDumper;
-    private TDA tda = null;
+    private TDAMainPanel tda = null;
     private Map tabs = null;
 
     public TDAPlugin() {
@@ -55,7 +55,7 @@ public class TDAPlugin extends JConsolePlugin implements PropertyChangeListener
         if (tabs == null) {
             try {
                 mBeanDumper = new MBeanDumper(getContext().getMBeanServerConnection());
-                tda = new TDA(false, mBeanDumper);
+                tda = new TDAMainPanel(false, mBeanDumper);
 
                 tda.init(true, false);
                 tabs = new LinkedHashMap();
@@ -80,8 +80,8 @@ public class TDAPlugin extends JConsolePlugin implements PropertyChangeListener
      * SwingWorker responsible for updating the GUI
      */
     class Worker extends SwingWorker {
-        private TDA tda;
-        Worker(TDA tda) {
+        private TDAMainPanel tda;
+        Worker(TDAMainPanel tda) {
             this.tda = tda;
         }
 

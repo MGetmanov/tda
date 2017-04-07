@@ -19,6 +19,7 @@
 package com.pironet.tda;
 
 import com.pironet.tda.filter.Filter;
+import com.pironet.tda.ui.utils.UIUtils;
 import com.pironet.tda.utils.DateMatcher;
 import com.pironet.tda.utils.IconFactory;
 import com.pironet.tda.utils.PrefManager;
@@ -131,20 +132,20 @@ public abstract class AbstractDumpParser implements DumpParser {
                 
                     if(occurence >= (minOccurence-1)) {
                         threadCount++;
-                        StringBuffer content = new StringBuffer("<body bgcolor=\"ffffff\"><b><font size=").append(TDA.getFontSizeModifier(-1)).
+                        StringBuffer content = new StringBuffer("<body bgcolor=\"ffffff\"><b><font size=").append(UIUtils.getFontSizeModifier(-1)).
                                 append(">").append((String) keys.get(0)).append("</b></font><hr><pre><font size=").
-                                append(TDA.getFontSizeModifier(-1)).append(">").
+                                append(UIUtils.getFontSizeModifier(-1)).append(">").
                                 append(fixMonitorLinks((String) ((Map) dumpStore.get(keys.get(0))).get(threadKey), (String) keys.get(0)));
 
                         int maxLines = 0;
                         for(int i = 1; i < dumps.length; i++) {
                             if(((Map)dumpStore.get(keys.get(i))).containsKey(threadKey)) {
                                 content.append("\n\n</pre><b><font size=");
-                                content.append(TDA.getFontSizeModifier(-1));
+                                content.append(UIUtils.getFontSizeModifier(-1));
                                 content.append(">");
                                 content.append(keys.get(i));
                                 content.append("</font></b><hr><pre><font size=");
-                                content.append(TDA.getFontSizeModifier(-1));
+                                content.append(UIUtils.getFontSizeModifier(-1));
                                 content.append(">");
                                 content.append(fixMonitorLinks((String) ((Map)dumpStore.get(keys.get(i))).get(threadKey), (String) keys.get(i)));
                                 int countLines = countLines(((String) ((Map)dumpStore.get(keys.get(i))).get(threadKey)));

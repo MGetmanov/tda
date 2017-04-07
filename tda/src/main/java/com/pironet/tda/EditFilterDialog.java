@@ -23,6 +23,7 @@
 package com.pironet.tda;
 
 import com.pironet.tda.filter.Filter;
+import com.pironet.tda.ui.utils.UIUtils;
 
 import javax.swing.*;
 import java.awt.*;
@@ -48,7 +49,7 @@ public class EditFilterDialog extends JDialog {
     public EditFilterDialog(Frame owner, String frameTitle, JList filterList, boolean isAdd) {
         super(owner, frameTitle, true);
         try {
-            setIconImage(TDA.createImageIcon("Filters.png").getImage());
+            setIconImage(UIUtils.createImageIcon("Filters.png").getImage());
         } catch (NoSuchMethodError nsme) {
             // ignore, for 1.4 backward compatibility
         }

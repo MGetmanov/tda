@@ -21,7 +21,7 @@
  */
 package com.pironet.tda.utils;
 
-import com.pironet.tda.TDA;
+import com.pironet.tda.ui.utils.UIUtils;
 
 import javax.swing.*;
 
@@ -42,15 +42,15 @@ public class IconFactory {
     public static final int MONITORS_NOLOCKS = 7;
     public static final int CUSTOM_CATEGORY = 8;
     
-    private final Icon[] icons = { TDA.createImageIcon("Threads.png"),
-                                   TDA.createImageIcon("ThreadsWaiting.png"),
-                                   TDA.createImageIcon("ThreadsSleeping.png"),
-                                   TDA.createImageIcon("ThreadsLocking.png"),
-                                   TDA.createImageIcon("Deadlock.png"),
-                                   TDA.createImageIcon("DiffDumps.png"),
-                                   TDA.createImageIcon("Monitors.png"),
-                                   TDA.createImageIcon("Monitors-nolocks.png"),
-                                   TDA.createImageIcon("CustomCat.png")
+    private final Icon[] icons = { UIUtils.createImageIcon("Threads.png"),
+                                   UIUtils.createImageIcon("ThreadsWaiting.png"),
+                                   UIUtils.createImageIcon("ThreadsSleeping.png"),
+                                   UIUtils.createImageIcon("ThreadsLocking.png"),
+                                   UIUtils.createImageIcon("Deadlock.png"),
+                                   UIUtils.createImageIcon("DiffDumps.png"),
+                                   UIUtils.createImageIcon("Monitors.png"),
+                                   UIUtils.createImageIcon("Monitors-nolocks.png"),
+                                   UIUtils.createImageIcon("CustomCat.png")
     };
     
     public static IconFactory get() {

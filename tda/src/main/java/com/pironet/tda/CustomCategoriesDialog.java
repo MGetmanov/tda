@@ -21,6 +21,7 @@
  */
 package com.pironet.tda;
 
+import com.pironet.tda.ui.utils.UIUtils;
 import com.pironet.tda.utils.PrefManager;
 
 import javax.swing.*;
@@ -46,7 +47,7 @@ public class CustomCategoriesDialog extends JDialog {
     public CustomCategoriesDialog(Frame owner) {
         super(owner, "Custom Categories");
         try {
-            setIconImage(TDA.createImageIcon("CustomCat.png").getImage());
+            setIconImage(UIUtils.createImageIcon("CustomCat.png").getImage());
         } catch (NoSuchMethodError nsme) {
         // ignore, for 1.4 backward compatibility
         }

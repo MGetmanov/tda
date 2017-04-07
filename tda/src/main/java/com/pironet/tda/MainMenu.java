@@ -22,6 +22,8 @@
 
 package com.pironet.tda;
 
+import com.pironet.tda.ui.TDAMainPanel;
+import com.pironet.tda.ui.utils.UIUtils;
 import com.pironet.tda.utils.PrefManager;
 import com.pironet.tda.utils.ResourceManager;
 
@@ -44,7 +46,7 @@ public class MainMenu extends JMenuBar {
     private JMenuItem expandAllMenuItem;
     private JMenuItem collapseAllMenuItem;
     
-    private TDA listener;
+    private TDAMainPanel listener;
     private JToolBar toolBar;
     private JButton closeToolBarButton;
     private JMenuItem saveSessionMenuItem;
@@ -57,7 +59,7 @@ public class MainMenu extends JMenuBar {
     /** 
      * Creates a new instance of the MainMenu 
      */
-    public MainMenu(TDA listener) {
+    public MainMenu(TDAMainPanel listener) {
         this.listener = listener;
         createMenuBar();
     }
@@ -145,7 +147,7 @@ public class MainMenu extends JMenuBar {
         //a group of JMenuItems
         menuItem = new JMenuItem(ResourceManager.translate("file.open"),
                 KeyStroke.getKeyStroke(ResourceManager.translate("file.open.mnem")).getKeyCode());
-        menuItem.setIcon(TDA.createImageIcon("FileOpen.png"));
+        menuItem.setIcon(UIUtils.createImageIcon("FileOpen.png"));
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
                 ResourceManager.translate("file.open.accel")));
         menuItem.getAccessibleContext().setAccessibleDescription(
@@ -155,7 +157,7 @@ public class MainMenu extends JMenuBar {
         
         closeMenuItem = new JMenuItem(ResourceManager.translate("file.close"),
                 KeyStroke.getKeyStroke(ResourceManager.translate("file.close.mnem")).getKeyCode());
-        closeMenuItem.setIcon(TDA.createImageIcon("CloseFile.png"));
+        closeMenuItem.setIcon(UIUtils.createImageIcon("CloseFile.png"));
         closeMenuItem.getAccessibleContext().setAccessibleDescription(
                 ResourceManager.translate("file.open.description"));
         closeMenuItem.addActionListener(listener);
@@ -176,7 +178,7 @@ public class MainMenu extends JMenuBar {
         menu.addSeparator();
         menuItem = new JMenuItem(ResourceManager.translate("file.getfromclipboard"),
                 KeyStroke.getKeyStroke(ResourceManager.translate("file.getfromclipboard.mnem")).getKeyCode());
-        menuItem.setIcon(TDA.createImageIcon("Empty.gif"));
+        menuItem.setIcon(UIUtils.createImageIcon("Empty.gif"));
         menuItem.getAccessibleContext().setAccessibleDescription(
                 ResourceManager.translate("file.getfromclipboard.description"));
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
@@ -230,7 +232,7 @@ public class MainMenu extends JMenuBar {
         
         expandAllMenuItem = new JMenuItem(ResourceManager.translate("view.expand"),
                 KeyStroke.getKeyStroke(ResourceManager.translate("view.expand.mnem")).getKeyCode());
-        expandAllMenuItem.setIcon(TDA.createImageIcon("Expanded.png"));
+        expandAllMenuItem.setIcon(UIUtils.createImageIcon("Expanded.png"));
         expandAllMenuItem.setAccelerator(KeyStroke.getKeyStroke(
                 ResourceManager.translate("view.expand.accel")));
         expandAllMenuItem.getAccessibleContext().setAccessibleDescription(
@@ -241,7 +243,7 @@ public class MainMenu extends JMenuBar {
 
         collapseAllMenuItem = new JMenuItem(ResourceManager.translate("view.collapse"),
                 KeyStroke.getKeyStroke(ResourceManager.translate("view.collapse.mnem")).getKeyCode());
-        collapseAllMenuItem.setIcon(TDA.createImageIcon("Collapsed.png"));
+        collapseAllMenuItem.setIcon(UIUtils.createImageIcon("Collapsed.png"));
         collapseAllMenuItem.setAccelerator(KeyStroke.getKeyStroke(
                 ResourceManager.translate("view.collapse.accel")));
         collapseAllMenuItem.getAccessibleContext().setAccessibleDescription(
@@ -254,7 +256,7 @@ public class MainMenu extends JMenuBar {
         menuItem = new JCheckBoxMenuItem(ResourceManager.translate("view.showtoolbar"), PrefManager.get().getShowToolbar());
         menuItem.setMnemonic(KeyStroke.getKeyStroke(ResourceManager.translate("view.showtoolbar.mnem")).getKeyCode());
         menuItem.addActionListener(listener);
-        menuItem.setIcon(TDA.createImageIcon("Empty.gif"));
+        menuItem.setIcon(UIUtils.createImageIcon("Empty.gif"));
         menu.add(menuItem);
         
         return(menu);
@@ -273,7 +275,7 @@ public class MainMenu extends JMenuBar {
         
         longMenuItem = new JMenuItem(ResourceManager.translate("tools.longrunning"),
                 KeyStroke.getKeyStroke(ResourceManager.translate("tools.longrunning.mnem")).getKeyCode());
-        longMenuItem.setIcon(TDA.createImageIcon("FindLRThreads.png"));
+        longMenuItem.setIcon(UIUtils.createImageIcon("FindLRThreads.png"));
         longMenuItem.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_L, ActionEvent.ALT_MASK));
         longMenuItem.getAccessibleContext().setAccessibleDescription(
@@ -285,7 +287,7 @@ public class MainMenu extends JMenuBar {
 
         menuItem = new JMenuItem("Filters",
                 KeyEvent.VK_F);
-        menuItem.setIcon(TDA.createImageIcon("Filters.png"));
+        menuItem.setIcon(UIUtils.createImageIcon("Filters.png"));
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_F, ActionEvent.ALT_MASK));
         menuItem.getAccessibleContext().setAccessibleDescription(
@@ -295,7 +297,7 @@ public class MainMenu extends JMenuBar {
         
         menuItem = new JMenuItem("Categories",
                 KeyEvent.VK_F);
-        menuItem.setIcon(TDA.createImageIcon("CustomCat.png"));
+        menuItem.setIcon(UIUtils.createImageIcon("CustomCat.png"));
         menuItem.setAccelerator(KeyStroke.getKeyStroke(
                 KeyEvent.VK_G, ActionEvent.ALT_MASK));
         menuItem.getAccessibleContext().setAccessibleDescription(
@@ -307,7 +309,7 @@ public class MainMenu extends JMenuBar {
 
         menuItem = new JMenuItem(ResourceManager.translate("file.preferences"),
                 KeyStroke.getKeyStroke(ResourceManager.translate("file.preferences.mnem")).getKeyCode());
-        menuItem.setIcon(TDA.createImageIcon("Preferences.png"));
+        menuItem.setIcon(UIUtils.createImageIcon("Preferences.png"));
         menuItem.getAccessibleContext().setAccessibleDescription(
                 ResourceManager.translate("file.preferences.description"));
         menuItem.addActionListener(listener);
@@ -349,7 +351,7 @@ public class MainMenu extends JMenuBar {
         menu.addSeparator();
         menuItem = new JMenuItem("About TDA",
                 KeyEvent.VK_A);
-        menuItem.setIcon(TDA.createImageIcon("About.png"));
+        menuItem.setIcon(UIUtils.createImageIcon("About.png"));
         menuItem.getAccessibleContext().setAccessibleDescription(
                 "About Thread Dump Analyzer");
         menuItem.addActionListener(listener);
@@ -453,7 +455,7 @@ public class MainMenu extends JMenuBar {
      * @return toolbar button
      */
     private JButton createToolBarButton(String text, String fileName) {
-        JButton toolbarButton = new JButton(TDA.createImageIcon(fileName));
+        JButton toolbarButton = new JButton(UIUtils.createImageIcon(fileName));
         if(text != null) {
             toolbarButton.setToolTipText(text);
         }

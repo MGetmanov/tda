@@ -21,6 +21,7 @@
  */
 package com.pironet.tda;
 
+import com.pironet.tda.ui.utils.UIUtils;
 import com.pironet.tda.utils.PrefManager;
 
 import javax.swing.*;
@@ -47,7 +48,7 @@ public class FilterDialog extends JDialog {
     public FilterDialog(Frame owner) {
         super(owner, "Filter Settings", true);
         try {
-            setIconImage(TDA.createImageIcon("Filters.png").getImage());
+            setIconImage(UIUtils.createImageIcon("Filters.png").getImage());
         } catch (NoSuchMethodError nsme) {
             // ignore, for 1.4 backward compatibility
         }

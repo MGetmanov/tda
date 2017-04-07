@@ -23,6 +23,7 @@
 package com.pironet.tda.utils;
 
 import com.pironet.tda.*;
+import com.pironet.tda.ui.utils.UIUtils;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -46,24 +47,24 @@ public class TreeRenderer extends DefaultTreeCellRenderer {
         if (leaf && isCategory(value)) {
             setIcon(getIconFromCategory(value));
         } else if (leaf && isThreadInfo(value)) {
-            setIcon(TDA.createImageIcon("Thread.png"));
+            setIcon(UIUtils.createImageIcon("Thread.png"));
         } else if(leaf && isHistogramInfo(value)) {
-            setIcon(TDA.createImageIcon("Histogram.png"));
+            setIcon(UIUtils.createImageIcon("Histogram.png"));
         } else if (leaf && isLogfile(value)) {
-            setIcon(TDA.createImageIcon("Root.png"));
+            setIcon(UIUtils.createImageIcon("Root.png"));
         } else if (leaf && isLogFileContent(value)) {
-            setIcon(TDA.createImageIcon("LogfileContent.png"));
+            setIcon(UIUtils.createImageIcon("LogfileContent.png"));
         } else if(!leaf) {
             if(((DefaultMutableTreeNode) value).isRoot() || isLogfile(value)) {
-                setIcon(TDA.createImageIcon("Root.png"));
+                setIcon(UIUtils.createImageIcon("Root.png"));
             } else if(isThreadInfo(value)) {
                 if(((ThreadInfo) ((DefaultMutableTreeNode) value).getUserObject()).areALotOfWaiting()) {
-                    setIcon(TDA.createImageIcon("MonitorRed.png"));
+                    setIcon(UIUtils.createImageIcon("MonitorRed.png"));
                 } else {
-                    setIcon(TDA.createImageIcon("Monitor.png"));
+                    setIcon(UIUtils.createImageIcon("Monitor.png"));
                 }
             } else {
-                setIcon(TDA.createImageIcon("ThreadDump.png"));
+                setIcon(UIUtils.createImageIcon("ThreadDump.png"));
             }
         }
         this.setBackgroundNonSelectionColor(new Color(0,0,0,0));

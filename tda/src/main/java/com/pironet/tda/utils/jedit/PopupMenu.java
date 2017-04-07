@@ -22,7 +22,7 @@
 
 package com.pironet.tda.utils.jedit;
 
-import com.pironet.tda.TDA;
+import com.pironet.tda.ui.TDAMainPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -36,14 +36,14 @@ import java.awt.event.KeyEvent;
  */
 public class PopupMenu extends JPopupMenu implements ActionListener {
     private JEditTextArea ref;
-    private TDA parent;
+    private TDAMainPanel parent;
     private JMenuItem againMenuItem;
     private JMenuItem copyMenuItem;
     private JMenuItem selectNoneMenuItem;
     
     private String searchString;
     
-    public PopupMenu(JEditTextArea ref, TDA parent, boolean showSave) {
+    public PopupMenu(JEditTextArea ref, TDAMainPanel parent, boolean showSave) {
         JMenuItem menuItem;
         
         menuItem = new JMenuItem("Goto Line...");
